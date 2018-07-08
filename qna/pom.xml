@@ -8,9 +8,27 @@
 	<packaging>war</packaging>
 
 	<build>
-		<finalName>qna</finalName>
-			
+		<finalName>qna</finalName>	
 		<plugins>
+		
+			<!-- src/main/webapp 기본 디렉토리를 webapp로 변 -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warSourceDirectory>webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+			
+			<!-- 이 프로젝트가 wtp플러그인에 배포가 가능하도 설정 변 -->
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<wtpversion>2.0</wtpversion>
+					<wtpContextName>/</wtpContextName>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
